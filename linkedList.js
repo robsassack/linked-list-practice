@@ -47,6 +47,18 @@ class LinkedList {
     return count;
   }
 
+  at(index) {
+    let current = this.HEAD;
+    if (index < 0 || index > this.size()) return null;
+    if (index === 0) return current;
+    let count = 0;
+    while (current) {
+      if (count === index) return current;
+      current = current.nextNode;
+      count++;
+    }
+  }
+
   toString() {
     let current = this.HEAD;
     let str = '';
@@ -75,3 +87,4 @@ list.prepend(0);
 console.log(`String: ${ list.toString() }`);
 console.log(`Tail: ${ list.tail().value }`);
 console.log(`Size: ${ list.size() }`);
+console.log(`At Position 3: ${ list.at(3).value }`);
