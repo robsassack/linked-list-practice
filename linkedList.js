@@ -28,6 +28,16 @@ class LinkedList {
     return;
   }
 
+  size() {
+    let current = this.HEAD;
+    let count = 0;
+    while (current) {
+      current = current.nextNode;
+      count++;
+    }
+    return count;
+  }
+
   toString() {
     let current = this.HEAD;
     let str = '';
@@ -54,3 +64,4 @@ list.append(4);
 list.append(5);
 console.log(`String: ${ list.toString() }`);
 console.log(`Tail: ${ list.tail().value }`);
+console.log(`Size: ${ list.size() }`);
