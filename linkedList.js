@@ -1,23 +1,35 @@
 class LinkedList {
   constructor() {
-    this.head = null;
-    this.tail = null;
+    this.HEAD = null;
+  }
+
+  head() {
+    return this.HEAD;
+  }
+
+  tail() {
+    let current = this.HEAD;
+    while (current) {
+      if (current.nextNode === null) {
+        return current;
+      }
+      current = current.nextNode;
+    }
   }
 
   append(value) {
     const newNode = new Node(value);
-    if (!this.head) {
-      this.head = newNode;
-      this.tail = newNode;
+    const tail = this.tail();
+    if (!this.HEAD) {
+      this.HEAD = newNode;
       return;
     }
-    this.tail.nextNode = newNode;
-    this.tail = newNode;
+    tail.nextNode = newNode;
     return;
   }
 
   toString() {
-    let current = this.head;
+    let current = this.HEAD;
     let str = '';
     while (current) {
       str += `( ${current.value} ) -> `;
@@ -40,4 +52,5 @@ list.append(2);
 list.append(3);
 list.append(4);
 list.append(5);
-console.log(list.toString());
+console.log(`String: ${ list.toString() }`);
+console.log(`Tail: ${ list.tail().value }`);
