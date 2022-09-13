@@ -28,6 +28,15 @@ class LinkedList {
     return;
   }
 
+  prepend(value) {
+    const newNode = new Node(value);
+    const temp = this.HEAD;
+    if (temp !== null) {
+      newNode.nextNode = temp;
+    }
+    this.HEAD = newNode;
+  }
+
   size() {
     let current = this.HEAD;
     let count = 0;
@@ -62,6 +71,7 @@ list.append(2);
 list.append(3);
 list.append(4);
 list.append(5);
+list.prepend(0);
 console.log(`String: ${ list.toString() }`);
 console.log(`Tail: ${ list.tail().value }`);
 console.log(`Size: ${ list.size() }`);
