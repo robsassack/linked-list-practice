@@ -111,6 +111,15 @@ class LinkedList {
     }
     return str + 'null';
   }
+
+  insertAt(value, index) {
+    if (index > this.size()) return null;
+    const newNode = new Node(value);
+    const prev = this.at(index - 1);
+    const next = this.at(index);
+    prev.nextNode = newNode;
+    newNode.nextNode = next;
+  }
 }
 
 class Node {
@@ -128,6 +137,7 @@ list.append('E');
 list.append('F');
 list.prepend('A');
 list.append('G');
+list.insertAt('Z', 2)
 list.pop();
 console.log(`String: ${ list.toString() }`);
 console.log(`Tail: ${ list.tail().value }`);
@@ -135,5 +145,5 @@ console.log(`Size: ${ list.size() }`);
 console.log(`At Position 3: ${ list.at(3).value }`);
 console.log(`Contains B: ${ list.contains('B') }`);
 console.log(`Contains H: ${ list.contains('J') }`);
-console.log(`Find B: ${ list.find('B') }`);
+console.log(`Find D: ${ list.find('D') }`);
 console.log(`Find Z: ${ list.find('Z') }`);
