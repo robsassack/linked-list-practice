@@ -120,6 +120,13 @@ class LinkedList {
     prev.nextNode = newNode;
     newNode.nextNode = next;
   }
+
+  removeAt(index) {
+    if (index > this.size()) return null;
+    const prev = this.at(index - 1);
+    const next = this.at(index + 1);
+    prev.nextNode = next;
+  }
 }
 
 class Node {
@@ -139,6 +146,7 @@ list.prepend('A');
 list.append('G');
 list.insertAt('Z', 2)
 list.pop();
+list.removeAt(2);
 console.log(`String: ${ list.toString() }`);
 console.log(`Tail: ${ list.tail().value }`);
 console.log(`Size: ${ list.size() }`);
