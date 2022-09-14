@@ -63,6 +63,10 @@ class LinkedList {
     if (this.HEAD === null) {
       return null;
     }
+    if (this.size() === 1) {
+      this.HEAD = null;
+      return;
+    }
     let current = this.HEAD;
     let tail = this.tail();
     while (current) {
