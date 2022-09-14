@@ -89,6 +89,19 @@ class LinkedList {
     return false;
   }
 
+  find(value) {
+    let current = this.HEAD;
+    let count = 0;
+    while (current) {
+      if (current.value === value) {
+        return count;
+      }
+      current = current.nextNode;
+      count++;
+    }
+    return null;
+  }
+
   toString() {
     let current = this.HEAD;
     let str = '';
@@ -108,17 +121,19 @@ class Node {
 }
 
 let list = new LinkedList();
-list.append(1);
-list.append(2);
-list.append(3);
-list.append(4);
-list.append(5);
-list.prepend(0);
-list.append(6);
+list.append('B');
+list.append('C');
+list.append('D');
+list.append('E');
+list.append('F');
+list.prepend('A');
+list.append('G');
 list.pop();
 console.log(`String: ${ list.toString() }`);
 console.log(`Tail: ${ list.tail().value }`);
 console.log(`Size: ${ list.size() }`);
 console.log(`At Position 3: ${ list.at(3).value }`);
-console.log(`Contains 8: ${ list.contains(8) }`);
-console.log(`Contains 2: ${ list.contains(2) }`);
+console.log(`Contains B: ${ list.contains('B') }`);
+console.log(`Contains H: ${ list.contains('J') }`);
+console.log(`Find B: ${ list.find('B') }`);
+console.log(`Find Z: ${ list.find('Z') }`);
