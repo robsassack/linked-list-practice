@@ -59,6 +59,21 @@ class LinkedList {
     }
   }
 
+  pop() {
+    if (this.HEAD === null) {
+      return null;
+    }
+    let current = this.HEAD;
+    let tail = this.tail();
+    while (current) {
+      if (current.nextNode === tail) {
+        current.nextNode = null;
+        return;
+      }
+      current = current.nextNode;
+    }
+  }
+
   toString() {
     let current = this.HEAD;
     let str = '';
@@ -84,6 +99,8 @@ list.append(3);
 list.append(4);
 list.append(5);
 list.prepend(0);
+list.append(6);
+list.pop();
 console.log(`String: ${ list.toString() }`);
 console.log(`Tail: ${ list.tail().value }`);
 console.log(`Size: ${ list.size() }`);
