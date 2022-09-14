@@ -78,6 +78,17 @@ class LinkedList {
     }
   }
 
+  contains(value) {
+    let current = this.HEAD;
+    while (current) {
+      if (current.value === value) {
+        return true;
+      }
+      current = current.nextNode;
+    }
+    return false;
+  }
+
   toString() {
     let current = this.HEAD;
     let str = '';
@@ -109,3 +120,5 @@ console.log(`String: ${ list.toString() }`);
 console.log(`Tail: ${ list.tail().value }`);
 console.log(`Size: ${ list.size() }`);
 console.log(`At Position 3: ${ list.at(3).value }`);
+console.log(`Contains 8: ${ list.contains(8) }`);
+console.log(`Contains 2: ${ list.contains(2) }`);
